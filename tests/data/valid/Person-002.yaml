@@ -1,0 +1,8 @@
+# The second contact. personEmail is genuinely absent for this row in the data - the slot
+# is optional, so this covers the 50% null case Person.personEmail documents.
+---
+personId: 464bd3933cc95754480458fe9ce2d6f9
+studyId: STUDY-41
+personName: Kelsey Carter
+personRole: PI
+personAffiliation: ORNL

@@ -1,0 +1,9 @@
+# The single row of Investigation.parquet.
+# publicReleaseDate, license and associatedPublication are null in the data and omitted.
+---
+investigationId: INV-41
+investigationTitle: Weston Poplar GWAS Phenotyping Experiment
+investigationDescription: Genome-wide association study of Populus plants measuring height,
+  weight, and multi-modal imaging phenotypes
+submissionDate: '2024-11-24'
+miappeVersion: 1.2

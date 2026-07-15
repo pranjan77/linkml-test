@@ -1,0 +1,22 @@
+# The single row of Study.parquet. Every other class reaches this study.
+# locationAltitude, expeDesignType, growthFacilityType and expeDesignMap are null and omitted.
+---
+studyId: STUDY-41
+investigationId: INV-41
+studyTitle: Populus Height and Weight GWAS - 2024
+studyDescription: GWAS population phenotyping experiment measuring plant height, weight,
+  and multi-spectral imaging traits
+studyStartDate: '2024-03-26'
+studyEndDate: '2024-05-09'
+contactInst: ORNL
+locationCountry: US
+siteName: AAPL
+locationLatitude: 35.9313
+# Stored unsigned in the data. ORNL sits at -84.31, so this is west longitude recorded
+# without its sign; carried through verbatim rather than corrected here.
+locationLongitude: 84.3104
+expeDesignDesc: GWAS population with multiple genotypes, phenotyping sessions every ~5 days
+obsUnitLevelHierarchy: plant
+obsUnitDesc: Individual Populus plants in trays
+growthFacilityDesc: Controlled growth facility with automated phenotyping systems
+culturalPractice: Daily watering, before/after weight measurements

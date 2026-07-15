@@ -1,0 +1,8 @@
+# One plant - the grain every fact resolves to.
+# spatialDistribution and obsUnitFactorValue are null across all 519 rows and omitted.
+---
+studyId: STUDY-41
+obsUnitId: 21674
+biologicalMaterialId: BESC-349
+obsUnitType: plant
+externalId: 21674

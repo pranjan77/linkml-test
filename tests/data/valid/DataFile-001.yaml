@@ -1,0 +1,5 @@
+# A source file the study was loaded from. dataFileVersion is null in the data and omitted.
+---
+studyId: STUDY-41
+dataFileLink: Observation.csv
+dataFileDesc: Observations including ground truth, height, weight, VOC

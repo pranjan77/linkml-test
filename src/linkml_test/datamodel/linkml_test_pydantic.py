@@ -84,26 +84,6 @@ linkml_meta = LinkMLMeta({'default_prefix': 'miappe_gold',
      'title': 'MIAPPE 1.2 Gold Layer - Weston Poplar GWAS Phenotyping Experiment'} )
 
 
-class GoldLayer(ConfiguredBaseModel):
-    """
-    Container holding one collection per Parquet file.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/ornl/miappe-gold', 'tree_root': True})
-
-    investigations: Optional[list[Investigation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    studies: Optional[list[Study]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    persons: Optional[list[Person]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    environments: Optional[list[Environment]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    dataFiles: Optional[list[DataFile]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    events: Optional[list[Event]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    biologicalMaterials: Optional[list[BiologicalMaterial]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    observationUnits: Optional[list[ObservationUnit]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    samples: Optional[list[Sample]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    observedVariables: Optional[list[ObservedVariable]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    observations: Optional[list[Observation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-    images: Optional[list[Image]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['GoldLayer']} })
-
-
 class Investigation(ConfiguredBaseModel):
     """
     Top-level research context. A single investigation groups one or more studies.
@@ -558,7 +538,6 @@ class Image(ConfiguredBaseModel):
 
 # Model rebuild
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
-GoldLayer.model_rebuild()
 Investigation.model_rebuild()
 Study.model_rebuild()
 Person.model_rebuild()

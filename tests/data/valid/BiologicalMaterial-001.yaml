@@ -1,0 +1,12 @@
+# The genotype observation unit 21674 is grown from. The lat/long is the wild collection
+# site, not the growth site. All materialSource* slots are null in the data and omitted.
+---
+studyId: STUDY-41
+biologicalMaterialId: BESC-349
+biologicalMaterialExtId: BESC-349
+organism: Populus trichocarpa
+genus: Populus
+species: trichocarpa
+infraspecificName: BESC-349
+biologicalMaterialLatitude: 48.49489546
+biologicalMaterialLongitude: -122.1561341

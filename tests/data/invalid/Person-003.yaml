@@ -1,7 +1,6 @@
-# The study PI. personId is the md5 surrogate of (studyId, personName, personEmail).
+# Counter-example: the real PI row with its required studyId removed.
 ---
 personId: c682d3ee03102369d889f8922f954710
-studyId: STUDY-41
 personName: Dave weston
 personEmail: westondj@ornl.gov
 personRole: PI

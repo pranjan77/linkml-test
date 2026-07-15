@@ -1,5 +1,5 @@
 # Auto generated from linkml_test.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-15T11:44:05
+# Generation date: 2026-07-15T12:06:17
 # Schema: miappe-gold
 #
 # id: https://w3id.org/ornl/miappe-gold
@@ -109,59 +109,6 @@ class ObservationObservationId(extended_str):
 
 class ImageImageId(extended_str):
     pass
-
-
-@dataclass(repr=False)
-class GoldLayer(YAMLRoot):
-    """
-    Container holding one collection per Parquet file.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MIAPPE_GOLD["GoldLayer"]
-    class_class_curie: ClassVar[str] = "miappe_gold:GoldLayer"
-    class_name: ClassVar[str] = "GoldLayer"
-    class_model_uri: ClassVar[URIRef] = MIAPPE_GOLD.GoldLayer
-
-    investigations: Optional[Union[dict[Union[str, InvestigationInvestigationId], Union[dict, "Investigation"]], list[Union[dict, "Investigation"]]]] = empty_dict()
-    studies: Optional[Union[dict[Union[str, StudyStudyId], Union[dict, "Study"]], list[Union[dict, "Study"]]]] = empty_dict()
-    persons: Optional[Union[dict[Union[str, PersonPersonId], Union[dict, "Person"]], list[Union[dict, "Person"]]]] = empty_dict()
-    environments: Optional[Union[Union[dict, "Environment"], list[Union[dict, "Environment"]]]] = empty_list()
-    dataFiles: Optional[Union[Union[dict, "DataFile"], list[Union[dict, "DataFile"]]]] = empty_list()
-    events: Optional[Union[dict[Union[str, EventEventId], Union[dict, "Event"]], list[Union[dict, "Event"]]]] = empty_dict()
-    biologicalMaterials: Optional[Union[dict[Union[str, BiologicalMaterialBiologicalMaterialId], Union[dict, "BiologicalMaterial"]], list[Union[dict, "BiologicalMaterial"]]]] = empty_dict()
-    observationUnits: Optional[Union[dict[Union[int, ObservationUnitObsUnitId], Union[dict, "ObservationUnit"]], list[Union[dict, "ObservationUnit"]]]] = empty_dict()
-    samples: Optional[Union[dict[Union[str, SampleSampleId], Union[dict, "Sample"]], list[Union[dict, "Sample"]]]] = empty_dict()
-    observedVariables: Optional[Union[dict[Union[str, ObservedVariableVariableId], Union[dict, "ObservedVariable"]], list[Union[dict, "ObservedVariable"]]]] = empty_dict()
-    observations: Optional[Union[dict[Union[str, ObservationObservationId], Union[dict, "Observation"]], list[Union[dict, "Observation"]]]] = empty_dict()
-    images: Optional[Union[dict[Union[str, ImageImageId], Union[dict, "Image"]], list[Union[dict, "Image"]]]] = empty_dict()
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="investigations", slot_type=Investigation, key_name="investigationId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="studies", slot_type=Study, key_name="studyId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="persons", slot_type=Person, key_name="personId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="environments", slot_type=Environment, key_name="envParam", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="dataFiles", slot_type=DataFile, key_name="dataFileLink", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="events", slot_type=Event, key_name="eventId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="biologicalMaterials", slot_type=BiologicalMaterial, key_name="biologicalMaterialId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="observationUnits", slot_type=ObservationUnit, key_name="obsUnitId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="samples", slot_type=Sample, key_name="sampleId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="observedVariables", slot_type=ObservedVariable, key_name="variableId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="observations", slot_type=Observation, key_name="observationId", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="images", slot_type=Image, key_name="imageId", keyed=True)
-
-        super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
@@ -918,42 +865,6 @@ class Image(YAMLRoot):
 # Slots
 class slots:
     pass
-
-slots.goldLayer__investigations = Slot(uri=MIAPPE_GOLD.investigations, name="goldLayer__investigations", curie=MIAPPE_GOLD.curie('investigations'),
-                   model_uri=MIAPPE_GOLD.goldLayer__investigations, domain=None, range=Optional[Union[dict[Union[str, InvestigationInvestigationId], Union[dict, Investigation]], list[Union[dict, Investigation]]]])
-
-slots.goldLayer__studies = Slot(uri=MIAPPE_GOLD.studies, name="goldLayer__studies", curie=MIAPPE_GOLD.curie('studies'),
-                   model_uri=MIAPPE_GOLD.goldLayer__studies, domain=None, range=Optional[Union[dict[Union[str, StudyStudyId], Union[dict, Study]], list[Union[dict, Study]]]])
-
-slots.goldLayer__persons = Slot(uri=MIAPPE_GOLD.persons, name="goldLayer__persons", curie=MIAPPE_GOLD.curie('persons'),
-                   model_uri=MIAPPE_GOLD.goldLayer__persons, domain=None, range=Optional[Union[dict[Union[str, PersonPersonId], Union[dict, Person]], list[Union[dict, Person]]]])
-
-slots.goldLayer__environments = Slot(uri=MIAPPE_GOLD.environments, name="goldLayer__environments", curie=MIAPPE_GOLD.curie('environments'),
-                   model_uri=MIAPPE_GOLD.goldLayer__environments, domain=None, range=Optional[Union[Union[dict, Environment], list[Union[dict, Environment]]]])
-
-slots.goldLayer__dataFiles = Slot(uri=MIAPPE_GOLD.dataFiles, name="goldLayer__dataFiles", curie=MIAPPE_GOLD.curie('dataFiles'),
-                   model_uri=MIAPPE_GOLD.goldLayer__dataFiles, domain=None, range=Optional[Union[Union[dict, DataFile], list[Union[dict, DataFile]]]])
-
-slots.goldLayer__events = Slot(uri=MIAPPE_GOLD.events, name="goldLayer__events", curie=MIAPPE_GOLD.curie('events'),
-                   model_uri=MIAPPE_GOLD.goldLayer__events, domain=None, range=Optional[Union[dict[Union[str, EventEventId], Union[dict, Event]], list[Union[dict, Event]]]])
-
-slots.goldLayer__biologicalMaterials = Slot(uri=MIAPPE_GOLD.biologicalMaterials, name="goldLayer__biologicalMaterials", curie=MIAPPE_GOLD.curie('biologicalMaterials'),
-                   model_uri=MIAPPE_GOLD.goldLayer__biologicalMaterials, domain=None, range=Optional[Union[dict[Union[str, BiologicalMaterialBiologicalMaterialId], Union[dict, BiologicalMaterial]], list[Union[dict, BiologicalMaterial]]]])
-
-slots.goldLayer__observationUnits = Slot(uri=MIAPPE_GOLD.observationUnits, name="goldLayer__observationUnits", curie=MIAPPE_GOLD.curie('observationUnits'),
-                   model_uri=MIAPPE_GOLD.goldLayer__observationUnits, domain=None, range=Optional[Union[dict[Union[int, ObservationUnitObsUnitId], Union[dict, ObservationUnit]], list[Union[dict, ObservationUnit]]]])
-
-slots.goldLayer__samples = Slot(uri=MIAPPE_GOLD.samples, name="goldLayer__samples", curie=MIAPPE_GOLD.curie('samples'),
-                   model_uri=MIAPPE_GOLD.goldLayer__samples, domain=None, range=Optional[Union[dict[Union[str, SampleSampleId], Union[dict, Sample]], list[Union[dict, Sample]]]])
-
-slots.goldLayer__observedVariables = Slot(uri=MIAPPE_GOLD.observedVariables, name="goldLayer__observedVariables", curie=MIAPPE_GOLD.curie('observedVariables'),
-                   model_uri=MIAPPE_GOLD.goldLayer__observedVariables, domain=None, range=Optional[Union[dict[Union[str, ObservedVariableVariableId], Union[dict, ObservedVariable]], list[Union[dict, ObservedVariable]]]])
-
-slots.goldLayer__observations = Slot(uri=MIAPPE_GOLD.observations, name="goldLayer__observations", curie=MIAPPE_GOLD.curie('observations'),
-                   model_uri=MIAPPE_GOLD.goldLayer__observations, domain=None, range=Optional[Union[dict[Union[str, ObservationObservationId], Union[dict, Observation]], list[Union[dict, Observation]]]])
-
-slots.goldLayer__images = Slot(uri=MIAPPE_GOLD.images, name="goldLayer__images", curie=MIAPPE_GOLD.curie('images'),
-                   model_uri=MIAPPE_GOLD.goldLayer__images, domain=None, range=Optional[Union[dict[Union[str, ImageImageId], Union[dict, Image]], list[Union[dict, Image]]]])
 
 slots.investigation__investigationId = Slot(uri=MIAPPE_GOLD.investigationId, name="investigation__investigationId", curie=MIAPPE_GOLD.curie('investigationId'),
                    model_uri=MIAPPE_GOLD.investigation__investigationId, domain=None, range=URIRef)

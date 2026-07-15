@@ -1,0 +1,8 @@
+# A dated phenotyping session. eventId is the md5 surrogate of (studyId, eventType, eventDate).
+# obsUnitId and eventAccNumber are null across all 44 rows and omitted.
+---
+eventId: a8df40b2eaffada77bc3b9f43816c194
+studyId: STUDY-41
+eventType: phenotyping_session
+eventDesc: 'Comprehensive phenotyping session: height measurements and multi-modal imaging'
+eventDate: '2024-03-26'

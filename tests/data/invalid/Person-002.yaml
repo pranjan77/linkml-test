@@ -1,7 +1,0 @@
-# Counter-example: studyId is required on Person, and it is missing here.
----
-personId: c9f0f895fb98ab9159f51fd0297e236d
-personName: John Roe
-personEmail: john.roe@ornl.gov
-personRole: Data Curator
-personAffiliation: Oak Ridge National Laboratory

@@ -1,0 +1,5 @@
+# A study-wide environment parameter, stored as a name/value pair.
+---
+studyId: STUDY-41
+envParam: growth_facility
+envParamValue: Controlled growth facility

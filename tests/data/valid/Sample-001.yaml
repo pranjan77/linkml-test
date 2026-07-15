@@ -1,0 +1,11 @@
+# Leaf tissue taken from plant 21674. The sampleId encodes its own lineage:
+# SAMPLE-<obsUnitId>-<collectionDate>-<L|S|WP>.
+# developmentStage and externalId are null across all 1491 rows and omitted.
+---
+obsUnitId: 21674
+sampleId: SAMPLE-21674-20240506-L
+anatomicalEntity: leaf
+sampleDesc: 'leaf sample from plant 21674 collected 2024-05-06; traits measured: Chlorophyll
+  Content, Leaf Area, Leaf Mass per Area, Net Photosynthesis Rate, Stomatal Conductance,
+  Total Protein'
+collectionDate: '2024-05-06'

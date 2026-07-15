@@ -23,58 +23,6 @@ default_range: string
 imports:
 - linkml:types
 classes:
-  GoldLayer:
-    tree_root: true
-    description: Container holding one collection per Parquet file.
-    attributes:
-      investigations:
-        range: Investigation
-        multivalued: true
-        inlined_as_list: true
-      studies:
-        range: Study
-        multivalued: true
-        inlined_as_list: true
-      persons:
-        range: Person
-        multivalued: true
-        inlined_as_list: true
-      environments:
-        range: Environment
-        multivalued: true
-        inlined_as_list: true
-      dataFiles:
-        range: DataFile
-        multivalued: true
-        inlined_as_list: true
-      events:
-        range: Event
-        multivalued: true
-        inlined_as_list: true
-      biologicalMaterials:
-        range: BiologicalMaterial
-        multivalued: true
-        inlined_as_list: true
-      observationUnits:
-        range: ObservationUnit
-        multivalued: true
-        inlined_as_list: true
-      samples:
-        range: Sample
-        multivalued: true
-        inlined_as_list: true
-      observedVariables:
-        range: ObservedVariable
-        multivalued: true
-        inlined_as_list: true
-      observations:
-        range: Observation
-        multivalued: true
-        inlined_as_list: true
-      images:
-        range: Image
-        multivalued: true
-        inlined_as_list: true
   Investigation:
     description: Top-level research context. A single investigation groups one or more studies.
     annotations:

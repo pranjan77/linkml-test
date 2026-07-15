@@ -1,0 +1,17 @@
+# The variable Observation-001 measures: trait + method + scale.
+# variableAccNumber, traitAccNumber, methodAccNumber and methodRef are null and omitted.
+---
+studyId: STUDY-41
+variableId: plant_height_mm
+variableName: Plant Height
+traitName: plant height
+traitEntity: whole plant
+traitEntityAccessionNumber: PO:0000003
+traitCharacteristic: height
+traitCharacteristicAccessionNumber: PATO:0000119
+methodName: manual measurement
+methodDesc: Plant height measured manually using a ruler or measuring tape from base of
+  stem to apical meristem.
+scaleName: millimeter
+scaleAccNumber: UO:0000016
+timeScale: days after transfer

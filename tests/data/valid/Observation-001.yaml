@@ -1,0 +1,15 @@
+# One measured value: plant 21674 was 522.0 mm tall at the 2024-03-26 session.
+# observationId is the md5 surrogate of (obsUnitId, variableId, observationTimestamp).
+# No sampleId - plant height is a whole-plant trait, so the tissue slot stays null (98.9%
+# of rows). replicate and qualityFlag are null across all rows and omitted.
+---
+observationId: aeb2bf5fc8fa8a3b4e93254fe126e7d6
+studyId: STUDY-41
+obsUnitId: 21674
+# Parquet stores this timezone-naive; xsd:dateTime needs an offset, so this example assigns
+# ORNL local time (EDT) explicitly. The zone is genuinely absent from the data - an exporter
+# has to choose one, and it must not silently assume UTC.
+observationTimestamp: '2024-03-26T06:41:41-04:00'
+variableId: plant_height_mm
+observationValue: 522.0
+notes: '"{""experiment_id"": 41}"'

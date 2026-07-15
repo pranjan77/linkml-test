@@ -1,0 +1,14 @@
+# One image-pipeline artifact for plant 21674.
+# Note observationTimestamp is a US-format string here, unlike the true datetime on
+# Observation - normalise before joining the two on time.
+# sampleId is null across all 552674 rows and omitted.
+---
+imageId: e8cece67f7c9fc53943ed136184cbaf2
+studyId: STUDY-41
+obsUnitId: 21674
+observationTimestamp: 4/15/24 6:55
+Modality: VNIR
+fileType: Image White Path
+filePath: '2024-04-15\2024-04-15--06-55-03_round-0_cam-1_calibFrame.bil'
+# Truncated mid-JSON in the source data; carried through verbatim.
+notes: '"{""assign_tray_area"": ""A1""'
