@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linkml-test" class="md-skip">
+        <a href="#miappe-12-gold-layer-weston-poplar-gwas-phenotyping-experiment" class="md-skip">
           Skip to content
         </a>
       
@@ -546,10 +546,10 @@
   
 
 
-<h1 id="linkml-test">linkml-test</h1>
-<p>This is the project description</p>
-<p>URI: <a href="https://w3id.org/pranjan77/linkml-test">https://w3id.org/pranjan77/linkml-test</a></p>
-<p>Name: linkml-test</p>
+<h1 id="miappe-12-gold-layer-weston-poplar-gwas-phenotyping-experiment">MIAPPE 1.2 Gold Layer - Weston Poplar GWAS Phenotyping Experiment</h1>
+<p>Cleaned, conformed, one-class-per-table model of a MIAPPE 1.2 plant phenotyping dataset: Populus trichocarpa observed at ORNL between 2024-03-26 and 2024-05-09. Facts are de-duplicated and carry deterministic md5 surrogate keys, so a reload reproduces identical identifiers.</p>
+<p>URI: <a href="https://w3id.org/ornl/miappe-gold">https://w3id.org/ornl/miappe-gold</a></p>
+<p>Name: miappe-gold</p>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -560,16 +560,56 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
+<td><a href="BiologicalMaterial/">BiologicalMaterial</a></td>
+<td>The genotype or accession an observation unit is grown from</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Person/">Person</a></td>
-<td>Represents a Person</td>
+<td><a href="DataFile/">DataFile</a></td>
+<td>A source file the study was loaded from</td>
 </tr>
 <tr>
-<td><a href="PersonCollection/">PersonCollection</a></td>
-<td>A holder for Person objects</td>
+<td><a href="Environment/">Environment</a></td>
+<td>A study-wide environment parameter, stored as a name/value pair</td>
+</tr>
+<tr>
+<td><a href="Event/">Event</a></td>
+<td>A dated event applied to the study, e</td>
+</tr>
+<tr>
+<td><a href="GoldLayer/">GoldLayer</a></td>
+<td>Container holding one collection per Parquet file</td>
+</tr>
+<tr>
+<td><a href="Image/">Image</a></td>
+<td>One image-pipeline artifact: a raw frame, mask, header or analysis output</td>
+</tr>
+<tr>
+<td><a href="Investigation/">Investigation</a></td>
+<td>Top-level research context</td>
+</tr>
+<tr>
+<td><a href="Observation/">Observation</a></td>
+<td>A single measured value</td>
+</tr>
+<tr>
+<td><a href="ObservationUnit/">ObservationUnit</a></td>
+<td>The thing observed - here an individual plant</td>
+</tr>
+<tr>
+<td><a href="ObservedVariable/">ObservedVariable</a></td>
+<td>A measured variable: trait + method + scale</td>
+</tr>
+<tr>
+<td><a href="Person/">Person</a></td>
+<td>A contact on the study</td>
+</tr>
+<tr>
+<td><a href="Sample/">Sample</a></td>
+<td>Tissue taken from an observation unit on a date (leaf, stem, whole plant)</td>
+</tr>
+<tr>
+<td><a href="Study/">Study</a></td>
+<td>One experiment at one site over one date range</td>
 </tr>
 </tbody>
 </table>
@@ -583,36 +623,456 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="age_in_years/">age_in_years</a></td>
-<td>Number of years since birth</td>
-</tr>
-<tr>
-<td><a href="birth_date/">birth_date</a></td>
-<td>Date on which a person is born</td>
-</tr>
-<tr>
-<td><a href="description/">description</a></td>
-<td>A human-readable description for a thing</td>
-</tr>
-<tr>
-<td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
-</tr>
-<tr>
-<td><a href="name/">name</a></td>
-<td>A human-readable name for a thing</td>
-</tr>
-<tr>
-<td><a href="people/">people</a></td>
+<td><a href="anatomicalEntity/">anatomicalEntity</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="primary_email/">primary_email</a></td>
-<td>The main email address of a person</td>
+<td><a href="associatedPublication/">associatedPublication</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="vital_status/">vital_status</a></td>
-<td>living or dead status</td>
+<td><a href="biologicalMaterialAltitude/">biologicalMaterialAltitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biologicalMaterialCoordUncertainty/">biologicalMaterialCoordUncertainty</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biologicalMaterialExtId/">biologicalMaterialExtId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biologicalMaterialId/">biologicalMaterialId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biologicalMaterialLatitude/">biologicalMaterialLatitude</a></td>
+<td>Latitude of the wild collection site, not the growth site</td>
+</tr>
+<tr>
+<td><a href="biologicalMaterialLongitude/">biologicalMaterialLongitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biologicalMaterialPreprocessing/">biologicalMaterialPreprocessing</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biologicalMaterials/">biologicalMaterials</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="collectionDate/">collectionDate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="contactInst/">contactInst</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="culturalPractice/">culturalPractice</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dataFileDesc/">dataFileDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dataFileLink/">dataFileLink</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dataFiles/">dataFiles</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dataFileVersion/">dataFileVersion</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="developmentStage/">developmentStage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="environments/">environments</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="envParam/">envParam</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="envParamValue/">envParamValue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="eventAccNumber/">eventAccNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="eventDate/">eventDate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="eventDesc/">eventDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="eventId/">eventId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="events/">events</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="eventType/">eventType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expeDesignDesc/">expeDesignDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expeDesignMap/">expeDesignMap</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expeDesignType/">expeDesignType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="externalId/">externalId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="filePath/">filePath</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="fileType/">fileType</a></td>
+<td>Artifact kind within a modality, e</td>
+</tr>
+<tr>
+<td><a href="genus/">genus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="growthFacilityDesc/">growthFacilityDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="growthFacilityType/">growthFacilityType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="imageId/">imageId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="images/">images</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="infraspecificName/">infraspecificName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="investigationDescription/">investigationDescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="investigationId/">investigationId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="investigations/">investigations</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="investigationTitle/">investigationTitle</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="license/">license</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="locationAltitude/">locationAltitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="locationCountry/">locationCountry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="locationLatitude/">locationLatitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="locationLongitude/">locationLongitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceAccName/">materialSourceAccName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceAccNumber/">materialSourceAccNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceAltitude/">materialSourceAltitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceCoordUncertainty/">materialSourceCoordUncertainty</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceDesc/">materialSourceDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceDoi/">materialSourceDoi</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceId/">materialSourceId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceInstCode/">materialSourceInstCode</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceInstName/">materialSourceInstName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceLatitude/">materialSourceLatitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceLongitude/">materialSourceLongitude</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialSourceOtherIds/">materialSourceOtherIds</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="methodAccNumber/">methodAccNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="methodDesc/">methodDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="methodName/">methodName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="methodRef/">methodRef</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="miappeVersion/">miappeVersion</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modality/">Modality</a></td>
+<td>Sensor that produced the artifact: FC1, FC2, VNIR, SWIR, MSC1, IR1, RGB1, RGB...</td>
+</tr>
+<tr>
+<td><a href="notes/">notes</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="observationId/">observationId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="observations/">observations</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="observationTimestamp/">observationTimestamp</a></td>
+<td>A true timestamp, unlike the string form used by Image</td>
+</tr>
+<tr>
+<td><a href="observationUnits/">observationUnits</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="observationValue/">observationValue</a></td>
+<td>The measured value</td>
+</tr>
+<tr>
+<td><a href="observedVariables/">observedVariables</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obsUnitDesc/">obsUnitDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obsUnitFactorValue/">obsUnitFactorValue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obsUnitId/">obsUnitId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obsUnitLevelHierarchy/">obsUnitLevelHierarchy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obsUnitType/">obsUnitType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism/">organism</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="personAffiliation/">personAffiliation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="personEmail/">personEmail</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="personId/">personId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="personName/">personName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="personRole/">personRole</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="persons/">persons</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="publicReleaseDate/">publicReleaseDate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="qualityFlag/">qualityFlag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="replicate/">replicate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sampleDesc/">sampleDesc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sampleId/">sampleId</a></td>
+<td>Encodes its own lineage: SAMPLE-<obsUnitId>-<collectionDate>-&lt;L</td>
+</tr>
+<tr>
+<td><a href="samples/">samples</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="scaleAccNumber/">scaleAccNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="scaleName/">scaleName</a></td>
+<td>The unit, as free text: mm, g, cm2, umol m-2 s-1</td>
+</tr>
+<tr>
+<td><a href="siteName/">siteName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="spatialDistribution/">spatialDistribution</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="species/">species</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studies/">studies</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyDescription/">studyDescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyEndDate/">studyEndDate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyId/">studyId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyStartDate/">studyStartDate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyTitle/">studyTitle</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="submissionDate/">submissionDate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="timeScale/">timeScale</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="traitAccNumber/">traitAccNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="traitCharacteristic/">traitCharacteristic</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="traitCharacteristicAccessionNumber/">traitCharacteristicAccessionNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="traitEntity/">traitEntity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="traitEntityAccessionNumber/">traitEntityAccessionNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="traitName/">traitName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="variableAccNumber/">variableAccNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="variableId/">variableId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="variableName/">variableName</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -626,8 +1086,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
-<td>The vital status of a person</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>

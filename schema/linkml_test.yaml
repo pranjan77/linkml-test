@@ -1,32 +1,21 @@
-name: linkml-test
-description: This is the project description
-title: linkml-test
-see_also:
-- https://pranjan77.github.io/linkml-test
-id: https://w3id.org/pranjan77/linkml-test
+name: miappe-gold
+description: 'Cleaned, conformed, one-class-per-table model of a MIAPPE 1.2 plant
+  phenotyping dataset: Populus trichocarpa observed at ORNL between 2024-03-26 and
+  2024-05-09. Facts are de-duplicated and carry deterministic md5 surrogate keys,
+  so a reload reproduces identical identifiers.'
+title: MIAPPE 1.2 Gold Layer - Weston Poplar GWAS Phenotyping Experiment
+id: https://w3id.org/ornl/miappe-gold
 imports:
 - linkml:types
-license: Apache-2.0
+license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
-  linkml_test:
-    prefix_prefix: linkml_test
-    prefix_reference: https://w3id.org/pranjan77/linkml-test/
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  biolink:
-    prefix_prefix: biolink
-    prefix_reference: https://w3id.org/biolink/vocab/
-  schema:
-    prefix_prefix: schema
-    prefix_reference: http://schema.org/
-  PATO:
-    prefix_prefix: PATO
-    prefix_reference: http://purl.obolibrary.org/obo/PATO_
-  example:
-    prefix_prefix: example
-    prefix_reference: http://www.example.org/rdf#
-default_prefix: linkml_test
+  miappe_gold:
+    prefix_prefix: miappe_gold
+    prefix_reference: https://w3id.org/ornl/miappe-gold/
+default_prefix: miappe_gold
 default_range: string
 types:
   string:
@@ -297,189 +286,2389 @@ types:
     base: str
     uri: xsd:string
     repr: str
-enums:
-  PersonStatus:
-    name: PersonStatus
-    definition_uri: https://w3id.org/pranjan77/linkml-test/PersonStatus
-    description: The vital status of a person
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    permissible_values:
-      ALIVE:
-        text: ALIVE
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        text: DEAD
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        text: UNKNOWN
-        description: the vital status is not known
-        todos:
-        - map this to an ontology
 slots:
-  id:
-    name: id
-    definition_uri: https://w3id.org/pranjan77/linkml-test/id
-    description: A unique identifier for a thing
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:identifier
-    slot_uri: schema:identifier
-    identifier: true
-    owner: NamedThing
+  goldLayer__investigations:
+    name: goldLayer__investigations
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:investigations
+    alias: investigations
+    owner: GoldLayer
     domain_of:
-    - NamedThing
-    range: uriorcurie
-    required: true
-  name:
-    name: name
-    definition_uri: https://w3id.org/pranjan77/linkml-test/name
-    description: A human-readable name for a thing
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:name
-    slot_uri: schema:name
-    owner: NamedThing
+    - GoldLayer
+    range: Investigation
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__studies:
+    name: goldLayer__studies
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studies
+    alias: studies
+    owner: GoldLayer
     domain_of:
-    - NamedThing
-    range: string
-  description:
-    name: description
-    definition_uri: https://w3id.org/pranjan77/linkml-test/description
-    description: A human-readable description for a thing
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:description
-    slot_uri: schema:description
-    owner: NamedThing
+    - GoldLayer
+    range: Study
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__persons:
+    name: goldLayer__persons
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:persons
+    alias: persons
+    owner: GoldLayer
     domain_of:
-    - NamedThing
-    range: string
-  primary_email:
-    name: primary_email
-    definition_uri: https://w3id.org/pranjan77/linkml-test/primary_email
-    description: The main email address of a person
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:email
-    slot_uri: schema:email
-    owner: Person
-    domain_of:
-    - Person
-    range: string
-  birth_date:
-    name: birth_date
-    definition_uri: https://w3id.org/pranjan77/linkml-test/birth_date
-    description: Date on which a person is born
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:birthDate
-    slot_uri: schema:birthDate
-    owner: Person
-    domain_of:
-    - Person
-    range: date
-  age_in_years:
-    name: age_in_years
-    definition_uri: https://w3id.org/pranjan77/linkml-test/age_in_years
-    description: Number of years since birth
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    slot_uri: linkml_test:age_in_years
-    owner: Person
-    domain_of:
-    - Person
-    range: integer
-  vital_status:
-    name: vital_status
-    definition_uri: https://w3id.org/pranjan77/linkml-test/vital_status
-    description: living or dead status
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    slot_uri: linkml_test:vital_status
-    owner: Person
-    domain_of:
-    - Person
-    range: PersonStatus
-  personCollection__people:
-    name: personCollection__people
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    slot_uri: linkml_test:people
-    alias: people
-    owner: PersonCollection
-    domain_of:
-    - PersonCollection
+    - GoldLayer
     range: Person
     multivalued: true
     inlined: true
     inlined_as_list: true
-  Person_primary_email:
-    name: Person_primary_email
-    definition_uri: https://w3id.org/pranjan77/linkml-test/primary_email
-    description: The main email address of a person
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:email
-    is_a: primary_email
-    domain: Person
-    slot_uri: schema:email
-    alias: primary_email
+  goldLayer__environments:
+    name: goldLayer__environments
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:environments
+    alias: environments
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: Environment
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__dataFiles:
+    name: goldLayer__dataFiles
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:dataFiles
+    alias: dataFiles
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: DataFile
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__events:
+    name: goldLayer__events
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:events
+    alias: events
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: Event
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__biologicalMaterials:
+    name: goldLayer__biologicalMaterials
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterials
+    alias: biologicalMaterials
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: BiologicalMaterial
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__observationUnits:
+    name: goldLayer__observationUnits
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observationUnits
+    alias: observationUnits
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: ObservationUnit
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__samples:
+    name: goldLayer__samples
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:samples
+    alias: samples
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: Sample
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__observedVariables:
+    name: goldLayer__observedVariables
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observedVariables
+    alias: observedVariables
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: ObservedVariable
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__observations:
+    name: goldLayer__observations
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observations
+    alias: observations
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: Observation
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  goldLayer__images:
+    name: goldLayer__images
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:images
+    alias: images
+    owner: GoldLayer
+    domain_of:
+    - GoldLayer
+    range: Image
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  investigation__investigationId:
+    name: investigation__investigationId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:investigationId
+    identifier: true
+    alias: investigationId
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: string
+    required: true
+  investigation__investigationTitle:
+    name: investigation__investigationTitle
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:investigationTitle
+    alias: investigationTitle
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: string
+  investigation__investigationDescription:
+    name: investigation__investigationDescription
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:investigationDescription
+    alias: investigationDescription
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: string
+  investigation__submissionDate:
+    name: investigation__submissionDate
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:submissionDate
+    alias: submissionDate
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: date
+  investigation__publicReleaseDate:
+    name: investigation__publicReleaseDate
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:publicReleaseDate
+    alias: publicReleaseDate
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: string
+  investigation__license:
+    name: investigation__license
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:license
+    alias: license
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: string
+  investigation__miappeVersion:
+    name: investigation__miappeVersion
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:miappeVersion
+    alias: miappeVersion
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: double
+  investigation__associatedPublication:
+    name: investigation__associatedPublication
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:associatedPublication
+    alias: associatedPublication
+    owner: Investigation
+    domain_of:
+    - Investigation
+    range: string
+  study__studyId:
+    name: study__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    identifier: true
+    alias: studyId
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+    required: true
+  study__investigationId:
+    name: study__investigationId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:investigationId
+    alias: investigationId
+    owner: Study
+    domain_of:
+    - Study
+    range: Investigation
+    required: true
+  study__studyTitle:
+    name: study__studyTitle
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyTitle
+    alias: studyTitle
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__studyDescription:
+    name: study__studyDescription
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyDescription
+    alias: studyDescription
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__studyStartDate:
+    name: study__studyStartDate
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyStartDate
+    alias: studyStartDate
+    owner: Study
+    domain_of:
+    - Study
+    range: date
+  study__studyEndDate:
+    name: study__studyEndDate
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyEndDate
+    alias: studyEndDate
+    owner: Study
+    domain_of:
+    - Study
+    range: date
+  study__contactInst:
+    name: study__contactInst
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:contactInst
+    alias: contactInst
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__locationCountry:
+    name: study__locationCountry
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:locationCountry
+    alias: locationCountry
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__siteName:
+    name: study__siteName
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:siteName
+    alias: siteName
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__locationLatitude:
+    name: study__locationLatitude
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:locationLatitude
+    alias: locationLatitude
+    owner: Study
+    domain_of:
+    - Study
+    range: double
+  study__locationLongitude:
+    name: study__locationLongitude
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:locationLongitude
+    alias: locationLongitude
+    owner: Study
+    domain_of:
+    - Study
+    range: double
+  study__locationAltitude:
+    name: study__locationAltitude
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:locationAltitude
+    alias: locationAltitude
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__expeDesignDesc:
+    name: study__expeDesignDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:expeDesignDesc
+    alias: expeDesignDesc
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__expeDesignType:
+    name: study__expeDesignType
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:expeDesignType
+    alias: expeDesignType
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__obsUnitLevelHierarchy:
+    name: study__obsUnitLevelHierarchy
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitLevelHierarchy
+    alias: obsUnitLevelHierarchy
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__obsUnitDesc:
+    name: study__obsUnitDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitDesc
+    alias: obsUnitDesc
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__growthFacilityDesc:
+    name: study__growthFacilityDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:growthFacilityDesc
+    alias: growthFacilityDesc
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__growthFacilityType:
+    name: study__growthFacilityType
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:growthFacilityType
+    alias: growthFacilityType
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__culturalPractice:
+    name: study__culturalPractice
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:culturalPractice
+    alias: culturalPractice
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__expeDesignMap:
+    name: study__expeDesignMap
+    comments:
+    - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:expeDesignMap
+    alias: expeDesignMap
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  person__studyId:
+    name: person__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
     owner: Person
     domain_of:
     - Person
-    is_usage_slot: true
-    usage_slot_name: primary_email
+    range: Study
+    required: true
+  person__personName:
+    name: person__personName
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:personName
+    alias: personName
+    owner: Person
+    domain_of:
+    - Person
     range: string
-    pattern: ^\S+@[\S+\.]+\S+
+  person__personEmail:
+    name: person__personEmail
+    comments:
+    - Null in 1 of 2 rows (50.0%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:personEmail
+    alias: personEmail
+    owner: Person
+    domain_of:
+    - Person
+    range: string
+  person__personId:
+    name: person__personId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:personId
+    identifier: true
+    alias: personId
+    owner: Person
+    domain_of:
+    - Person
+    range: string
+    required: true
+  person__personRole:
+    name: person__personRole
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:personRole
+    alias: personRole
+    owner: Person
+    domain_of:
+    - Person
+    range: string
+  person__personAffiliation:
+    name: person__personAffiliation
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:personAffiliation
+    alias: personAffiliation
+    owner: Person
+    domain_of:
+    - Person
+    range: string
+  environment__studyId:
+    name: environment__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: Environment
+    domain_of:
+    - Environment
+    range: Study
+    required: true
+  environment__envParam:
+    name: environment__envParam
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:envParam
+    alias: envParam
+    owner: Environment
+    domain_of:
+    - Environment
+    range: string
+    required: true
+  environment__envParamValue:
+    name: environment__envParamValue
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:envParamValue
+    alias: envParamValue
+    owner: Environment
+    domain_of:
+    - Environment
+    range: string
+  dataFile__studyId:
+    name: dataFile__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: DataFile
+    domain_of:
+    - DataFile
+    range: Study
+    required: true
+  dataFile__dataFileLink:
+    name: dataFile__dataFileLink
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:dataFileLink
+    alias: dataFileLink
+    owner: DataFile
+    domain_of:
+    - DataFile
+    range: string
+    required: true
+  dataFile__dataFileDesc:
+    name: dataFile__dataFileDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:dataFileDesc
+    alias: dataFileDesc
+    owner: DataFile
+    domain_of:
+    - DataFile
+    range: string
+  dataFile__dataFileVersion:
+    name: dataFile__dataFileVersion
+    comments:
+    - Entirely null across all 2 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:dataFileVersion
+    alias: dataFileVersion
+    owner: DataFile
+    domain_of:
+    - DataFile
+    range: string
+  event__eventId:
+    name: event__eventId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:eventId
+    identifier: true
+    alias: eventId
+    owner: Event
+    domain_of:
+    - Event
+    range: string
+    required: true
+  event__studyId:
+    name: event__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: Event
+    domain_of:
+    - Event
+    range: Study
+    required: true
+  event__obsUnitId:
+    name: event__obsUnitId
+    comments:
+    - Entirely null across all 44 rows; Parquet defaulted the type to int32. A MIAPPE
+      slot this study never filled.
+    - Named like a foreign key but never populated and not covered by a schema.yml
+      relationship test, so it is left as a plain scalar here.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitId
+    alias: obsUnitId
+    owner: Event
+    domain_of:
+    - Event
+    range: integer
+  event__eventType:
+    name: event__eventType
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:eventType
+    alias: eventType
+    owner: Event
+    domain_of:
+    - Event
+    range: string
+  event__eventAccNumber:
+    name: event__eventAccNumber
+    comments:
+    - Entirely null across all 44 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:eventAccNumber
+    alias: eventAccNumber
+    owner: Event
+    domain_of:
+    - Event
+    range: string
+  event__eventDesc:
+    name: event__eventDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:eventDesc
+    alias: eventDesc
+    owner: Event
+    domain_of:
+    - Event
+    range: string
+  event__eventDate:
+    name: event__eventDate
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:eventDate
+    alias: eventDate
+    owner: Event
+    domain_of:
+    - Event
+    range: date
+  biologicalMaterial__studyId:
+    name: biologicalMaterial__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: Study
+    required: true
+  biologicalMaterial__biologicalMaterialId:
+    name: biologicalMaterial__biologicalMaterialId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialId
+    identifier: true
+    alias: biologicalMaterialId
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+    required: true
+  biologicalMaterial__biologicalMaterialExtId:
+    name: biologicalMaterial__biologicalMaterialExtId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialExtId
+    alias: biologicalMaterialExtId
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__organism:
+    name: biologicalMaterial__organism
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:organism
+    alias: organism
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__genus:
+    name: biologicalMaterial__genus
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:genus
+    alias: genus
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__species:
+    name: biologicalMaterial__species
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:species
+    alias: species
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__infraspecificName:
+    name: biologicalMaterial__infraspecificName
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:infraspecificName
+    alias: infraspecificName
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__biologicalMaterialLatitude:
+    name: biologicalMaterial__biologicalMaterialLatitude
+    description: Latitude of the wild collection site, not the growth site.
+    comments:
+    - Null in 65 of 510 rows (12.7%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialLatitude
+    alias: biologicalMaterialLatitude
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: double
+  biologicalMaterial__biologicalMaterialLongitude:
+    name: biologicalMaterial__biologicalMaterialLongitude
+    comments:
+    - Null in 65 of 510 rows (12.7%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialLongitude
+    alias: biologicalMaterialLongitude
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: double
+  biologicalMaterial__biologicalMaterialAltitude:
+    name: biologicalMaterial__biologicalMaterialAltitude
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialAltitude
+    alias: biologicalMaterialAltitude
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__biologicalMaterialCoordUncertainty:
+    name: biologicalMaterial__biologicalMaterialCoordUncertainty
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialCoordUncertainty
+    alias: biologicalMaterialCoordUncertainty
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__biologicalMaterialPreprocessing:
+    name: biologicalMaterial__biologicalMaterialPreprocessing
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialPreprocessing
+    alias: biologicalMaterialPreprocessing
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceId:
+    name: biologicalMaterial__materialSourceId
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceId
+    alias: materialSourceId
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceDoi:
+    name: biologicalMaterial__materialSourceDoi
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceDoi
+    alias: materialSourceDoi
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceAccNumber:
+    name: biologicalMaterial__materialSourceAccNumber
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceAccNumber
+    alias: materialSourceAccNumber
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceAccName:
+    name: biologicalMaterial__materialSourceAccName
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceAccName
+    alias: materialSourceAccName
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceInstCode:
+    name: biologicalMaterial__materialSourceInstCode
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceInstCode
+    alias: materialSourceInstCode
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceInstName:
+    name: biologicalMaterial__materialSourceInstName
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceInstName
+    alias: materialSourceInstName
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceOtherIds:
+    name: biologicalMaterial__materialSourceOtherIds
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceOtherIds
+    alias: materialSourceOtherIds
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceLatitude:
+    name: biologicalMaterial__materialSourceLatitude
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceLatitude
+    alias: materialSourceLatitude
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceLongitude:
+    name: biologicalMaterial__materialSourceLongitude
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceLongitude
+    alias: materialSourceLongitude
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceAltitude:
+    name: biologicalMaterial__materialSourceAltitude
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceAltitude
+    alias: materialSourceAltitude
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceCoordUncertainty:
+    name: biologicalMaterial__materialSourceCoordUncertainty
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceCoordUncertainty
+    alias: materialSourceCoordUncertainty
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  biologicalMaterial__materialSourceDesc:
+    name: biologicalMaterial__materialSourceDesc
+    comments:
+    - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:materialSourceDesc
+    alias: materialSourceDesc
+    owner: BiologicalMaterial
+    domain_of:
+    - BiologicalMaterial
+    range: string
+  observationUnit__studyId:
+    name: observationUnit__studyId
+    description: Denormalised for filtering - also derivable via biologicalMaterialId.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: Study
+    required: true
+  observationUnit__obsUnitId:
+    name: observationUnit__obsUnitId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitId
+    identifier: true
+    alias: obsUnitId
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: integer
+    required: true
+  observationUnit__biologicalMaterialId:
+    name: observationUnit__biologicalMaterialId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:biologicalMaterialId
+    alias: biologicalMaterialId
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: BiologicalMaterial
+    required: true
+  observationUnit__obsUnitType:
+    name: observationUnit__obsUnitType
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitType
+    alias: obsUnitType
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: string
+  observationUnit__externalId:
+    name: observationUnit__externalId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:externalId
+    alias: externalId
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: integer
+  observationUnit__spatialDistribution:
+    name: observationUnit__spatialDistribution
+    comments:
+    - Entirely null across all 519 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:spatialDistribution
+    alias: spatialDistribution
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: string
+  observationUnit__obsUnitFactorValue:
+    name: observationUnit__obsUnitFactorValue
+    comments:
+    - Entirely null across all 519 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitFactorValue
+    alias: obsUnitFactorValue
+    owner: ObservationUnit
+    domain_of:
+    - ObservationUnit
+    range: string
+  sample__obsUnitId:
+    name: sample__obsUnitId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitId
+    alias: obsUnitId
+    owner: Sample
+    domain_of:
+    - Sample
+    range: ObservationUnit
+    required: true
+  sample__sampleId:
+    name: sample__sampleId
+    description: 'Encodes its own lineage: SAMPLE-<obsUnitId>-<collectionDate>-<L|S|WP>.'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:sampleId
+    identifier: true
+    alias: sampleId
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: true
+  sample__developmentStage:
+    name: sample__developmentStage
+    comments:
+    - Entirely null across all 1491 rows; Parquet defaulted the type to string. A
+      MIAPPE slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:developmentStage
+    alias: developmentStage
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  sample__anatomicalEntity:
+    name: sample__anatomicalEntity
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:anatomicalEntity
+    alias: anatomicalEntity
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  sample__sampleDesc:
+    name: sample__sampleDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:sampleDesc
+    alias: sampleDesc
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  sample__collectionDate:
+    name: sample__collectionDate
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:collectionDate
+    alias: collectionDate
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  sample__externalId:
+    name: sample__externalId
+    comments:
+    - Entirely null across all 1491 rows; Parquet defaulted the type to string. A
+      MIAPPE slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:externalId
+    alias: externalId
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  observedVariable__studyId:
+    name: observedVariable__studyId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: Study
+    required: true
+  observedVariable__variableId:
+    name: observedVariable__variableId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:variableId
+    identifier: true
+    alias: variableId
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+    required: true
+  observedVariable__variableName:
+    name: observedVariable__variableName
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:variableName
+    alias: variableName
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__variableAccNumber:
+    name: observedVariable__variableAccNumber
+    comments:
+    - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:variableAccNumber
+    alias: variableAccNumber
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__traitName:
+    name: observedVariable__traitName
+    comments:
+    - Null in 98 of 109 rows (89.9%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:traitName
+    alias: traitName
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__traitEntity:
+    name: observedVariable__traitEntity
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:traitEntity
+    alias: traitEntity
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__traitEntityAccessionNumber:
+    name: observedVariable__traitEntityAccessionNumber
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:traitEntityAccessionNumber
+    alias: traitEntityAccessionNumber
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__traitCharacteristic:
+    name: observedVariable__traitCharacteristic
+    comments:
+    - Null in 98 of 109 rows (89.9%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:traitCharacteristic
+    alias: traitCharacteristic
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__traitCharacteristicAccessionNumber:
+    name: observedVariable__traitCharacteristicAccessionNumber
+    comments:
+    - Null in 107 of 109 rows (98.2%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:traitCharacteristicAccessionNumber
+    alias: traitCharacteristicAccessionNumber
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__traitAccNumber:
+    name: observedVariable__traitAccNumber
+    comments:
+    - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:traitAccNumber
+    alias: traitAccNumber
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__methodName:
+    name: observedVariable__methodName
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:methodName
+    alias: methodName
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__methodAccNumber:
+    name: observedVariable__methodAccNumber
+    comments:
+    - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:methodAccNumber
+    alias: methodAccNumber
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__methodDesc:
+    name: observedVariable__methodDesc
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:methodDesc
+    alias: methodDesc
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__methodRef:
+    name: observedVariable__methodRef
+    comments:
+    - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE
+      slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:methodRef
+    alias: methodRef
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__scaleName:
+    name: observedVariable__scaleName
+    description: 'The unit, as free text: mm, g, cm2, umol m-2 s-1.'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:scaleName
+    alias: scaleName
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__scaleAccNumber:
+    name: observedVariable__scaleAccNumber
+    comments:
+    - Null in 107 of 109 rows (98.2%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:scaleAccNumber
+    alias: scaleAccNumber
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observedVariable__timeScale:
+    name: observedVariable__timeScale
+    comments:
+    - Null in 107 of 109 rows (98.2%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:timeScale
+    alias: timeScale
+    owner: ObservedVariable
+    domain_of:
+    - ObservedVariable
+    range: string
+  observation__observationId:
+    name: observation__observationId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observationId
+    identifier: true
+    alias: observationId
+    owner: Observation
+    domain_of:
+    - Observation
+    range: string
+    required: true
+  observation__studyId:
+    name: observation__studyId
+    description: Denormalised for filtering - also derivable via obsUnitId.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: Observation
+    domain_of:
+    - Observation
+    range: Study
+    required: true
+  observation__obsUnitId:
+    name: observation__obsUnitId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitId
+    alias: obsUnitId
+    owner: Observation
+    domain_of:
+    - Observation
+    range: ObservationUnit
+    required: true
+  observation__sampleId:
+    name: observation__sampleId
+    description: Set only for point-measurement traits that need the tissue; null
+      when the trait is measured on the whole plant.
+    comments:
+    - Null in 416409 of 420858 rows (98.9%).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:sampleId
+    alias: sampleId
+    owner: Observation
+    domain_of:
+    - Observation
+    range: Sample
+  observation__observationTimestamp:
+    name: observation__observationTimestamp
+    description: A true timestamp, unlike the string form used by Image.observationTimestamp.
+    comments:
+    - Timezone-naive in Parquet (timestamp[ns], tz=None). xsd:dateTime and JSON Schema
+      date-time both want an RFC3339 offset, so an exporter has to assign one explicitly
+      - the zone is genuinely absent from the data, do not silently assume UTC.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observationTimestamp
+    alias: observationTimestamp
+    owner: Observation
+    domain_of:
+    - Observation
+    range: datetime
+  observation__variableId:
+    name: observation__variableId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:variableId
+    alias: variableId
+    owner: Observation
+    domain_of:
+    - Observation
+    range: ObservedVariable
+    required: true
+  observation__observationValue:
+    name: observation__observationValue
+    description: The measured value. Its unit is Observed_variable.scaleName, not
+      stored here.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observationValue
+    alias: observationValue
+    owner: Observation
+    domain_of:
+    - Observation
+    range: double
+  observation__replicate:
+    name: observation__replicate
+    comments:
+    - Entirely null across all 420858 rows; Parquet defaulted the type to string.
+      A MIAPPE slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:replicate
+    alias: replicate
+    owner: Observation
+    domain_of:
+    - Observation
+    range: string
+  observation__qualityFlag:
+    name: observation__qualityFlag
+    comments:
+    - Entirely null across all 420858 rows; Parquet defaulted the type to string.
+      A MIAPPE slot this study never filled.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:qualityFlag
+    alias: qualityFlag
+    owner: Observation
+    domain_of:
+    - Observation
+    range: string
+  observation__notes:
+    name: observation__notes
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:notes
+    alias: notes
+    owner: Observation
+    domain_of:
+    - Observation
+    range: string
+  image__imageId:
+    name: image__imageId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:imageId
+    identifier: true
+    alias: imageId
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+    required: true
+  image__studyId:
+    name: image__studyId
+    description: Denormalised for filtering - also derivable via obsUnitId.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:studyId
+    alias: studyId
+    owner: Image
+    domain_of:
+    - Image
+    range: Study
+    required: true
+  image__obsUnitId:
+    name: image__obsUnitId
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:obsUnitId
+    alias: obsUnitId
+    owner: Image
+    domain_of:
+    - Image
+    range: ObservationUnit
+    required: true
+  image__sampleId:
+    name: image__sampleId
+    comments:
+    - Entirely null across all 552674 rows; Parquet defaulted the type to string.
+      A MIAPPE slot this study never filled.
+    - Named like a foreign key but never populated and not covered by a schema.yml
+      relationship test, so it is left as a plain scalar here.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:sampleId
+    alias: sampleId
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+  image__observationTimestamp:
+    name: image__observationTimestamp
+    description: Stored as a US-format string, e.g. '4/15/24 6:55'. Not the timestamp
+      type Observation uses - normalise before joining the two on time.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:observationTimestamp
+    alias: observationTimestamp
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+  image__Modality:
+    name: image__Modality
+    description: 'Sensor that produced the artifact: FC1, FC2, VNIR, SWIR, MSC1, IR1,
+      RGB1, RGB2, S3D. Capitalised to match the Parquet column.'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:Modality
+    alias: Modality
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+  image__fileType:
+    name: image__fileType
+    description: Artifact kind within a modality, e.g. Image, Mask, Analysis, Protocol,
+      Image Data Header.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:fileType
+    alias: fileType
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+  image__filePath:
+    name: image__filePath
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:filePath
+    alias: filePath
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+  image__notes:
+    name: image__notes
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slot_uri: miappe_gold:notes
+    alias: notes
+    owner: Image
+    domain_of:
+    - Image
+    range: string
 classes:
-  NamedThing:
-    name: NamedThing
-    definition_uri: https://w3id.org/pranjan77/linkml-test/NamedThing
-    description: A generic grouping for any identifiable entity
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    mappings:
-    - schema:Thing
+  GoldLayer:
+    name: GoldLayer
+    definition_uri: https://w3id.org/ornl/miappe-gold/GoldLayer
+    description: Container holding one collection per Parquet file.
+    from_schema: https://w3id.org/ornl/miappe-gold
     slots:
-    - id
-    - name
-    - description
-    class_uri: schema:Thing
-  Person:
-    name: Person
-    definition_uri: https://w3id.org/pranjan77/linkml-test/Person
-    description: Represents a Person
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    is_a: NamedThing
-    slots:
-    - id
-    - name
-    - description
-    - Person_primary_email
-    - birth_date
-    - age_in_years
-    - vital_status
-    slot_usage:
-      primary_email:
-        name: primary_email
-        pattern: ^\S+@[\S+\.]+\S+
-    class_uri: linkml_test:Person
-  PersonCollection:
-    name: PersonCollection
-    definition_uri: https://w3id.org/pranjan77/linkml-test/PersonCollection
-    description: A holder for Person objects
-    from_schema: https://w3id.org/pranjan77/linkml-test
-    slots:
-    - personCollection__people
+    - goldLayer__investigations
+    - goldLayer__studies
+    - goldLayer__persons
+    - goldLayer__environments
+    - goldLayer__dataFiles
+    - goldLayer__events
+    - goldLayer__biologicalMaterials
+    - goldLayer__observationUnits
+    - goldLayer__samples
+    - goldLayer__observedVariables
+    - goldLayer__observations
+    - goldLayer__images
     attributes:
-      people:
-        name: people
+      investigations:
+        name: investigations
+        range: Investigation
+        multivalued: true
+        inlined_as_list: true
+      studies:
+        name: studies
+        range: Study
+        multivalued: true
+        inlined_as_list: true
+      persons:
+        name: persons
         range: Person
         multivalued: true
         inlined_as_list: true
-    class_uri: linkml_test:PersonCollection
+      environments:
+        name: environments
+        range: Environment
+        multivalued: true
+        inlined_as_list: true
+      dataFiles:
+        name: dataFiles
+        range: DataFile
+        multivalued: true
+        inlined_as_list: true
+      events:
+        name: events
+        range: Event
+        multivalued: true
+        inlined_as_list: true
+      biologicalMaterials:
+        name: biologicalMaterials
+        range: BiologicalMaterial
+        multivalued: true
+        inlined_as_list: true
+      observationUnits:
+        name: observationUnits
+        range: ObservationUnit
+        multivalued: true
+        inlined_as_list: true
+      samples:
+        name: samples
+        range: Sample
+        multivalued: true
+        inlined_as_list: true
+      observedVariables:
+        name: observedVariables
+        range: ObservedVariable
+        multivalued: true
+        inlined_as_list: true
+      observations:
+        name: observations
+        range: Observation
+        multivalued: true
+        inlined_as_list: true
+      images:
+        name: images
+        range: Image
+        multivalued: true
+        inlined_as_list: true
+    class_uri: miappe_gold:GoldLayer
     tree_root: true
+  Investigation:
+    name: Investigation
+    definition_uri: https://w3id.org/ornl/miappe-gold/Investigation
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Investigation.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 1
+    description: Top-level research context. A single investigation groups one or
+      more studies.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - investigation__investigationId
+    - investigation__investigationTitle
+    - investigation__investigationDescription
+    - investigation__submissionDate
+    - investigation__publicReleaseDate
+    - investigation__license
+    - investigation__miappeVersion
+    - investigation__associatedPublication
+    attributes:
+      investigationId:
+        name: investigationId
+        identifier: true
+        range: string
+      investigationTitle:
+        name: investigationTitle
+        range: string
+      investigationDescription:
+        name: investigationDescription
+        range: string
+      submissionDate:
+        name: submissionDate
+        range: date
+      publicReleaseDate:
+        name: publicReleaseDate
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+      license:
+        name: license
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+      miappeVersion:
+        name: miappeVersion
+        range: double
+      associatedPublication:
+        name: associatedPublication
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+    class_uri: miappe_gold:Investigation
+  Study:
+    name: Study
+    definition_uri: https://w3id.org/ornl/miappe-gold/Study
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Study.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 1
+    description: One experiment at one site over one date range. Every other table
+      reaches this.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - study__studyId
+    - study__investigationId
+    - study__studyTitle
+    - study__studyDescription
+    - study__studyStartDate
+    - study__studyEndDate
+    - study__contactInst
+    - study__locationCountry
+    - study__siteName
+    - study__locationLatitude
+    - study__locationLongitude
+    - study__locationAltitude
+    - study__expeDesignDesc
+    - study__expeDesignType
+    - study__obsUnitLevelHierarchy
+    - study__obsUnitDesc
+    - study__growthFacilityDesc
+    - study__growthFacilityType
+    - study__culturalPractice
+    - study__expeDesignMap
+    attributes:
+      studyId:
+        name: studyId
+        identifier: true
+        range: string
+      investigationId:
+        name: investigationId
+        range: Investigation
+        required: true
+      studyTitle:
+        name: studyTitle
+        range: string
+      studyDescription:
+        name: studyDescription
+        range: string
+      studyStartDate:
+        name: studyStartDate
+        range: date
+      studyEndDate:
+        name: studyEndDate
+        range: date
+      contactInst:
+        name: contactInst
+        range: string
+      locationCountry:
+        name: locationCountry
+        range: string
+      siteName:
+        name: siteName
+        range: string
+      locationLatitude:
+        name: locationLatitude
+        range: double
+      locationLongitude:
+        name: locationLongitude
+        range: double
+      locationAltitude:
+        name: locationAltitude
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+      expeDesignDesc:
+        name: expeDesignDesc
+        range: string
+      expeDesignType:
+        name: expeDesignType
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+      obsUnitLevelHierarchy:
+        name: obsUnitLevelHierarchy
+        range: string
+      obsUnitDesc:
+        name: obsUnitDesc
+        range: string
+      growthFacilityDesc:
+        name: growthFacilityDesc
+        range: string
+      growthFacilityType:
+        name: growthFacilityType
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+      culturalPractice:
+        name: culturalPractice
+        range: string
+      expeDesignMap:
+        name: expeDesignMap
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+    class_uri: miappe_gold:Study
+  Person:
+    name: Person
+    definition_uri: https://w3id.org/ornl/miappe-gold/Person
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Person.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 2
+    description: 'A contact on the study. personId is a surrogate: md5(studyId, personName,
+      personEmail).'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - person__studyId
+    - person__personName
+    - person__personEmail
+    - person__personId
+    - person__personRole
+    - person__personAffiliation
+    attributes:
+      studyId:
+        name: studyId
+        range: Study
+        required: true
+      personName:
+        name: personName
+        range: string
+      personEmail:
+        name: personEmail
+        comments:
+        - Null in 1 of 2 rows (50.0%).
+        range: string
+      personId:
+        name: personId
+        identifier: true
+        range: string
+      personRole:
+        name: personRole
+        range: string
+      personAffiliation:
+        name: personAffiliation
+        range: string
+    class_uri: miappe_gold:Person
+  Environment:
+    name: Environment
+    definition_uri: https://w3id.org/ornl/miappe-gold/Environment
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Environment.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 2
+    description: A study-wide environment parameter, stored as a name/value pair.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - environment__studyId
+    - environment__envParam
+    - environment__envParamValue
+    attributes:
+      studyId:
+        name: studyId
+        range: Study
+        required: true
+      envParam:
+        name: envParam
+        range: string
+        required: true
+      envParamValue:
+        name: envParamValue
+        range: string
+    class_uri: miappe_gold:Environment
+    unique_keys:
+      environment_key:
+        unique_key_name: environment_key
+        unique_key_slots:
+        - studyId
+        - envParam
+  DataFile:
+    name: DataFile
+    definition_uri: https://w3id.org/ornl/miappe-gold/DataFile
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Data_files.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 2
+    description: A source file the study was loaded from.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - dataFile__studyId
+    - dataFile__dataFileLink
+    - dataFile__dataFileDesc
+    - dataFile__dataFileVersion
+    attributes:
+      studyId:
+        name: studyId
+        range: Study
+        required: true
+      dataFileLink:
+        name: dataFileLink
+        range: string
+        required: true
+      dataFileDesc:
+        name: dataFileDesc
+        range: string
+      dataFileVersion:
+        name: dataFileVersion
+        comments:
+        - Entirely null across all 2 rows; Parquet defaulted the type to string. A
+          MIAPPE slot this study never filled.
+        range: string
+    class_uri: miappe_gold:DataFile
+    unique_keys:
+      data_file_key:
+        unique_key_name: data_file_key
+        unique_key_slots:
+        - studyId
+        - dataFileLink
+  Event:
+    name: Event
+    definition_uri: https://w3id.org/ornl/miappe-gold/Event
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Event.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 44
+    description: 'A dated event applied to the study, e.g. a phenotyping session.
+      eventId is a surrogate: md5(studyId, eventType, eventDate).'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - event__eventId
+    - event__studyId
+    - event__obsUnitId
+    - event__eventType
+    - event__eventAccNumber
+    - event__eventDesc
+    - event__eventDate
+    attributes:
+      eventId:
+        name: eventId
+        identifier: true
+        range: string
+      studyId:
+        name: studyId
+        range: Study
+        required: true
+      obsUnitId:
+        name: obsUnitId
+        comments:
+        - Entirely null across all 44 rows; Parquet defaulted the type to int32. A
+          MIAPPE slot this study never filled.
+        - Named like a foreign key but never populated and not covered by a schema.yml
+          relationship test, so it is left as a plain scalar here.
+        range: integer
+      eventType:
+        name: eventType
+        range: string
+      eventAccNumber:
+        name: eventAccNumber
+        comments:
+        - Entirely null across all 44 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      eventDesc:
+        name: eventDesc
+        range: string
+      eventDate:
+        name: eventDate
+        range: date
+    class_uri: miappe_gold:Event
+  BiologicalMaterial:
+    name: BiologicalMaterial
+    definition_uri: https://w3id.org/ornl/miappe-gold/BiologicalMaterial
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Biological_material.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 510
+    description: The genotype or accession an observation unit is grown from.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - biologicalMaterial__studyId
+    - biologicalMaterial__biologicalMaterialId
+    - biologicalMaterial__biologicalMaterialExtId
+    - biologicalMaterial__organism
+    - biologicalMaterial__genus
+    - biologicalMaterial__species
+    - biologicalMaterial__infraspecificName
+    - biologicalMaterial__biologicalMaterialLatitude
+    - biologicalMaterial__biologicalMaterialLongitude
+    - biologicalMaterial__biologicalMaterialAltitude
+    - biologicalMaterial__biologicalMaterialCoordUncertainty
+    - biologicalMaterial__biologicalMaterialPreprocessing
+    - biologicalMaterial__materialSourceId
+    - biologicalMaterial__materialSourceDoi
+    - biologicalMaterial__materialSourceAccNumber
+    - biologicalMaterial__materialSourceAccName
+    - biologicalMaterial__materialSourceInstCode
+    - biologicalMaterial__materialSourceInstName
+    - biologicalMaterial__materialSourceOtherIds
+    - biologicalMaterial__materialSourceLatitude
+    - biologicalMaterial__materialSourceLongitude
+    - biologicalMaterial__materialSourceAltitude
+    - biologicalMaterial__materialSourceCoordUncertainty
+    - biologicalMaterial__materialSourceDesc
+    attributes:
+      studyId:
+        name: studyId
+        range: Study
+        required: true
+      biologicalMaterialId:
+        name: biologicalMaterialId
+        identifier: true
+        range: string
+      biologicalMaterialExtId:
+        name: biologicalMaterialExtId
+        range: string
+      organism:
+        name: organism
+        range: string
+      genus:
+        name: genus
+        range: string
+      species:
+        name: species
+        range: string
+      infraspecificName:
+        name: infraspecificName
+        range: string
+      biologicalMaterialLatitude:
+        name: biologicalMaterialLatitude
+        description: Latitude of the wild collection site, not the growth site.
+        comments:
+        - Null in 65 of 510 rows (12.7%).
+        range: double
+      biologicalMaterialLongitude:
+        name: biologicalMaterialLongitude
+        comments:
+        - Null in 65 of 510 rows (12.7%).
+        range: double
+      biologicalMaterialAltitude:
+        name: biologicalMaterialAltitude
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      biologicalMaterialCoordUncertainty:
+        name: biologicalMaterialCoordUncertainty
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      biologicalMaterialPreprocessing:
+        name: biologicalMaterialPreprocessing
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceId:
+        name: materialSourceId
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceDoi:
+        name: materialSourceDoi
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceAccNumber:
+        name: materialSourceAccNumber
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceAccName:
+        name: materialSourceAccName
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceInstCode:
+        name: materialSourceInstCode
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceInstName:
+        name: materialSourceInstName
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceOtherIds:
+        name: materialSourceOtherIds
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceLatitude:
+        name: materialSourceLatitude
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceLongitude:
+        name: materialSourceLongitude
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceAltitude:
+        name: materialSourceAltitude
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceCoordUncertainty:
+        name: materialSourceCoordUncertainty
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      materialSourceDesc:
+        name: materialSourceDesc
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+    class_uri: miappe_gold:BiologicalMaterial
+  ObservationUnit:
+    name: ObservationUnit
+    definition_uri: https://w3id.org/ornl/miappe-gold/ObservationUnit
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Observation_Unit.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 519
+    description: The thing observed - here an individual plant. The grain every fact
+      resolves to.
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - observationUnit__studyId
+    - observationUnit__obsUnitId
+    - observationUnit__biologicalMaterialId
+    - observationUnit__obsUnitType
+    - observationUnit__externalId
+    - observationUnit__spatialDistribution
+    - observationUnit__obsUnitFactorValue
+    attributes:
+      studyId:
+        name: studyId
+        description: Denormalised for filtering - also derivable via biologicalMaterialId.
+        range: Study
+        required: true
+      obsUnitId:
+        name: obsUnitId
+        identifier: true
+        range: integer
+      biologicalMaterialId:
+        name: biologicalMaterialId
+        range: BiologicalMaterial
+        required: true
+      obsUnitType:
+        name: obsUnitType
+        range: string
+      externalId:
+        name: externalId
+        range: integer
+      spatialDistribution:
+        name: spatialDistribution
+        comments:
+        - Entirely null across all 519 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      obsUnitFactorValue:
+        name: obsUnitFactorValue
+        comments:
+        - Entirely null across all 519 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+    class_uri: miappe_gold:ObservationUnit
+  Sample:
+    name: Sample
+    definition_uri: https://w3id.org/ornl/miappe-gold/Sample
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Sample.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 1491
+    description: Tissue taken from an observation unit on a date (leaf, stem, whole
+      plant).
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - sample__obsUnitId
+    - sample__sampleId
+    - sample__developmentStage
+    - sample__anatomicalEntity
+    - sample__sampleDesc
+    - sample__collectionDate
+    - sample__externalId
+    attributes:
+      obsUnitId:
+        name: obsUnitId
+        range: ObservationUnit
+        required: true
+      sampleId:
+        name: sampleId
+        description: 'Encodes its own lineage: SAMPLE-<obsUnitId>-<collectionDate>-<L|S|WP>.'
+        identifier: true
+        range: string
+      developmentStage:
+        name: developmentStage
+        comments:
+        - Entirely null across all 1491 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      anatomicalEntity:
+        name: anatomicalEntity
+        range: string
+      sampleDesc:
+        name: sampleDesc
+        range: string
+      collectionDate:
+        name: collectionDate
+        range: string
+      externalId:
+        name: externalId
+        comments:
+        - Entirely null across all 1491 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+    class_uri: miappe_gold:Sample
+  ObservedVariable:
+    name: ObservedVariable
+    definition_uri: https://w3id.org/ornl/miappe-gold/ObservedVariable
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Observed_variable.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 109
+    description: 'A measured variable: trait + method + scale. Joined by every observation.'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - observedVariable__studyId
+    - observedVariable__variableId
+    - observedVariable__variableName
+    - observedVariable__variableAccNumber
+    - observedVariable__traitName
+    - observedVariable__traitEntity
+    - observedVariable__traitEntityAccessionNumber
+    - observedVariable__traitCharacteristic
+    - observedVariable__traitCharacteristicAccessionNumber
+    - observedVariable__traitAccNumber
+    - observedVariable__methodName
+    - observedVariable__methodAccNumber
+    - observedVariable__methodDesc
+    - observedVariable__methodRef
+    - observedVariable__scaleName
+    - observedVariable__scaleAccNumber
+    - observedVariable__timeScale
+    attributes:
+      studyId:
+        name: studyId
+        range: Study
+        required: true
+      variableId:
+        name: variableId
+        identifier: true
+        range: string
+      variableName:
+        name: variableName
+        range: string
+      variableAccNumber:
+        name: variableAccNumber
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      traitName:
+        name: traitName
+        comments:
+        - Null in 98 of 109 rows (89.9%).
+        range: string
+      traitEntity:
+        name: traitEntity
+        range: string
+      traitEntityAccessionNumber:
+        name: traitEntityAccessionNumber
+        range: string
+      traitCharacteristic:
+        name: traitCharacteristic
+        comments:
+        - Null in 98 of 109 rows (89.9%).
+        range: string
+      traitCharacteristicAccessionNumber:
+        name: traitCharacteristicAccessionNumber
+        comments:
+        - Null in 107 of 109 rows (98.2%).
+        range: string
+      traitAccNumber:
+        name: traitAccNumber
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      methodName:
+        name: methodName
+        range: string
+      methodAccNumber:
+        name: methodAccNumber
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      methodDesc:
+        name: methodDesc
+        range: string
+      methodRef:
+        name: methodRef
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      scaleName:
+        name: scaleName
+        description: 'The unit, as free text: mm, g, cm2, umol m-2 s-1.'
+        range: string
+      scaleAccNumber:
+        name: scaleAccNumber
+        comments:
+        - Null in 107 of 109 rows (98.2%).
+        range: string
+      timeScale:
+        name: timeScale
+        comments:
+        - Null in 107 of 109 rows (98.2%).
+        range: string
+    class_uri: miappe_gold:ObservedVariable
+  Observation:
+    name: Observation
+    definition_uri: https://w3id.org/ornl/miappe-gold/Observation
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Observation.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 420858
+    description: 'A single measured value. observationId is a surrogate: md5(obsUnitId,
+      variableId, observationTimestamp).'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - observation__observationId
+    - observation__studyId
+    - observation__obsUnitId
+    - observation__sampleId
+    - observation__observationTimestamp
+    - observation__variableId
+    - observation__observationValue
+    - observation__replicate
+    - observation__qualityFlag
+    - observation__notes
+    attributes:
+      observationId:
+        name: observationId
+        identifier: true
+        range: string
+      studyId:
+        name: studyId
+        description: Denormalised for filtering - also derivable via obsUnitId.
+        range: Study
+        required: true
+      obsUnitId:
+        name: obsUnitId
+        range: ObservationUnit
+        required: true
+      sampleId:
+        name: sampleId
+        description: Set only for point-measurement traits that need the tissue; null
+          when the trait is measured on the whole plant.
+        comments:
+        - Null in 416409 of 420858 rows (98.9%).
+        range: Sample
+      observationTimestamp:
+        name: observationTimestamp
+        description: A true timestamp, unlike the string form used by Image.observationTimestamp.
+        comments:
+        - Timezone-naive in Parquet (timestamp[ns], tz=None). xsd:dateTime and JSON
+          Schema date-time both want an RFC3339 offset, so an exporter has to assign
+          one explicitly - the zone is genuinely absent from the data, do not silently
+          assume UTC.
+        range: datetime
+      variableId:
+        name: variableId
+        range: ObservedVariable
+        required: true
+      observationValue:
+        name: observationValue
+        description: The measured value. Its unit is Observed_variable.scaleName,
+          not stored here.
+        range: double
+      replicate:
+        name: replicate
+        comments:
+        - Entirely null across all 420858 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      qualityFlag:
+        name: qualityFlag
+        comments:
+        - Entirely null across all 420858 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        range: string
+      notes:
+        name: notes
+        range: string
+    class_uri: miappe_gold:Observation
+  Image:
+    name: Image
+    definition_uri: https://w3id.org/ornl/miappe-gold/Image
+    annotations:
+      parquet_file:
+        tag: parquet_file
+        value: Images.parquet
+      rows_in_current_data:
+        tag: rows_in_current_data
+        value: 552674
+    description: 'One image-pipeline artifact: a raw frame, mask, header or analysis
+      output. imageId is a surrogate: md5 of all business columns.'
+    from_schema: https://w3id.org/ornl/miappe-gold
+    slots:
+    - image__imageId
+    - image__studyId
+    - image__obsUnitId
+    - image__sampleId
+    - image__observationTimestamp
+    - image__Modality
+    - image__fileType
+    - image__filePath
+    - image__notes
+    attributes:
+      imageId:
+        name: imageId
+        identifier: true
+        range: string
+      studyId:
+        name: studyId
+        description: Denormalised for filtering - also derivable via obsUnitId.
+        range: Study
+        required: true
+      obsUnitId:
+        name: obsUnitId
+        range: ObservationUnit
+        required: true
+      sampleId:
+        name: sampleId
+        comments:
+        - Entirely null across all 552674 rows; Parquet defaulted the type to string.
+          A MIAPPE slot this study never filled.
+        - Named like a foreign key but never populated and not covered by a schema.yml
+          relationship test, so it is left as a plain scalar here.
+        range: string
+      observationTimestamp:
+        name: observationTimestamp
+        description: Stored as a US-format string, e.g. '4/15/24 6:55'. Not the timestamp
+          type Observation uses - normalise before joining the two on time.
+        range: string
+      Modality:
+        name: Modality
+        description: 'Sensor that produced the artifact: FC1, FC2, VNIR, SWIR, MSC1,
+          IR1, RGB1, RGB2, S3D. Capitalised to match the Parquet column.'
+        range: string
+      fileType:
+        name: fileType
+        description: Artifact kind within a modality, e.g. Image, Mask, Analysis,
+          Protocol, Image Data Header.
+        range: string
+      filePath:
+        name: filePath
+        range: string
+      notes:
+        name: notes
+        range: string
+    class_uri: miappe_gold:Image
 metamodel_version: 1.11.0
 source_file: linkml_test.yaml
-source_file_date: '2026-07-14T20:56:26'
-source_file_size: 2256
-generation_date: '2026-07-14T20:56:37'
+source_file_date: '2026-07-15T15:45:53'
+source_file_size: 19245
+generation_date: '2026-07-15T15:46:05'
 

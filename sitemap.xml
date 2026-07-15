@@ -2,142 +2,598 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pranjan77.github.io/linkml-test/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/about/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/BiologicalMaterial/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Boolean/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Curie/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/DataFile/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Date/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/DateOrDatetime/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Datetime/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Decimal/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Double/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Environment/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Event/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Float/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/GoldLayer/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Image/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Integer/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Investigation/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Jsonpath/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Jsonpointer/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/NamedThing/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Modality/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Ncname/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Nodeidentifier/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Objectidentifier/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Observation/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/ObservationUnit/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/ObservedVariable/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Person/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/PersonCollection/</loc>
-         <lastmod>2026-07-14</lastmod>
-    </url>
-    <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/PersonStatus/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Sample/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Sparqlpath/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/String/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/Study/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Time/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Uri/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://pranjan77.github.io/linkml-test/elements/Uriorcurie/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/age_in_years/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/anatomicalEntity/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/birth_date/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/associatedPublication/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/description/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialAltitude/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/id/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialCoordUncertainty/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/linkml-test/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialExtId/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/name/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialId/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/people/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialLatitude/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/primary_email/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialLongitude/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
-         <loc>https://pranjan77.github.io/linkml-test/elements/vital_status/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterialPreprocessing/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/biologicalMaterials/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/collectionDate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/contactInst/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/culturalPractice/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/dataFileDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/dataFileLink/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/dataFileVersion/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/dataFiles/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/developmentStage/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/envParam/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/envParamValue/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/environments/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/eventAccNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/eventDate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/eventDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/eventId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/eventType/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/events/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/expeDesignDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/expeDesignMap/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/expeDesignType/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/externalId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/filePath/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/fileType/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/genus/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/growthFacilityDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/growthFacilityType/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/imageId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/images/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/infraspecificName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/investigationDescription/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/investigationId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/investigationTitle/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/investigations/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/license/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/locationAltitude/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/locationCountry/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/locationLatitude/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/locationLongitude/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceAccName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceAccNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceAltitude/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceCoordUncertainty/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceDoi/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceInstCode/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceInstName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceLatitude/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceLongitude/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/materialSourceOtherIds/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/methodAccNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/methodDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/methodName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/methodRef/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/miappe-gold/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/miappeVersion/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/notes/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/obsUnitDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/obsUnitFactorValue/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/obsUnitId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/obsUnitLevelHierarchy/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/obsUnitType/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/observationId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/observationTimestamp/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/observationUnits/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/observationValue/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/observations/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/observedVariables/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/organism/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/personAffiliation/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/personEmail/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/personId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/personName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/personRole/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/persons/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/publicReleaseDate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/qualityFlag/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/replicate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/sampleDesc/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/sampleId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/samples/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/scaleAccNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/scaleName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/siteName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/spatialDistribution/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/species/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/studies/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/studyDescription/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/studyEndDate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/studyId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/studyStartDate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/studyTitle/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/submissionDate/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/timeScale/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/traitAccNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/traitCharacteristic/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/traitCharacteristicAccessionNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/traitEntity/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/traitEntityAccessionNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/traitName/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/variableAccNumber/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/variableId/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://pranjan77.github.io/linkml-test/elements/variableName/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
 </urlset>
