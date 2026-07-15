@@ -1,6 +1,8 @@
-# Example data object
+# A study contact. personId is the md5 surrogate of (studyId, personName, personEmail).
 ---
-id: "001"
-name: foo bar
-primary_email: foo.bar@example.com
-age_in_years: 33
+personId: 8f14e45fceea167a5a36dedd4bea2543
+studyId: ORNL-WESTON-POPLAR-2024
+personName: Jane Doe
+personEmail: jane.doe@ornl.gov
+personRole: Principal Investigator
+personAffiliation: Oak Ridge National Laboratory

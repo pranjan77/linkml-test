@@ -1,98 +1,583 @@
----
-id: https://w3id.org/pranjan77/linkml-test
-name: linkml-test
-title: linkml-test
-description: |-
-  This is the project description
-license: Apache-2.0
-see_also:
-  - https://pranjan77.github.io/linkml-test
+# LinkML schema for the MIAPPE 1.2 gold layer (Weston Poplar GWAS).
+#
+# Generated from the Parquet files and schema.yml. Ranges and cardinality mirror what
+# is actually stored; identifiers, required-ness and the 16 relationships mirror the
+# schema.yml contract. Parquet cannot enforce keys - this file can.
+#
+# Caveat carried over from the data: a column that is entirely null has no type to
+# infer, so Parquet stored it as string. Those slots are marked below; several are
+# semantically numeric (materialSourceLatitude, locationAltitude) and should be
+# retyped if they are ever populated.
 
+id: https://w3id.org/ornl/miappe-gold
+name: miappe-gold
+title: MIAPPE 1.2 Gold Layer - Weston Poplar GWAS Phenotyping Experiment
+description: 'Cleaned, conformed, one-class-per-table model of a MIAPPE 1.2 plant phenotyping dataset:
+  Populus trichocarpa observed at ORNL between 2024-03-26 and 2024-05-09. Facts are de-duplicated
+  and carry deterministic md5 surrogate keys, so a reload reproduces identical identifiers.'
 prefixes:
-  linkml_test: https://w3id.org/pranjan77/linkml-test/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  example: http://www.example.org/rdf#
-default_prefix: linkml_test
+  miappe_gold: https://w3id.org/ornl/miappe-gold/
+default_prefix: miappe_gold
 default_range: string
-
 imports:
-  - linkml:types
-
+- linkml:types
 classes:
-
-  NamedThing:
-    description: >-
-      A generic grouping for any identifiable entity
-    slots:
-      - id
-      - name
-      - description
-    class_uri: schema:Thing
-
-  Person:
-    is_a: NamedThing
-    description: >-
-      Represents a Person
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-
-  PersonCollection:
+  GoldLayer:
     tree_root: true
-    description: >-
-      A holder for Person objects
+    description: Container holding one collection per Parquet file.
     attributes:
-      people:
+      investigations:
+        range: Investigation
+        multivalued: true
+        inlined_as_list: true
+      studies:
+        range: Study
+        multivalued: true
+        inlined_as_list: true
+      persons:
         range: Person
         multivalued: true
         inlined_as_list: true
-
-slots:
-  id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
-    description: A unique identifier for a thing
-  name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
-
-enums:
-  PersonStatus:
-    description:
-      The vital status of a person
-    permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+      environments:
+        range: Environment
+        multivalued: true
+        inlined_as_list: true
+      dataFiles:
+        range: DataFile
+        multivalued: true
+        inlined_as_list: true
+      events:
+        range: Event
+        multivalued: true
+        inlined_as_list: true
+      biologicalMaterials:
+        range: BiologicalMaterial
+        multivalued: true
+        inlined_as_list: true
+      observationUnits:
+        range: ObservationUnit
+        multivalued: true
+        inlined_as_list: true
+      samples:
+        range: Sample
+        multivalued: true
+        inlined_as_list: true
+      observedVariables:
+        range: ObservedVariable
+        multivalued: true
+        inlined_as_list: true
+      observations:
+        range: Observation
+        multivalued: true
+        inlined_as_list: true
+      images:
+        range: Image
+        multivalued: true
+        inlined_as_list: true
+  Investigation:
+    description: Top-level research context. A single investigation groups one or more studies.
+    annotations:
+      parquet_file: Investigation.parquet
+      rows_in_current_data: 1
+    attributes:
+      investigationId:
+        range: string
+        identifier: true
+      investigationTitle:
+        range: string
+      investigationDescription:
+        range: string
+      submissionDate:
+        range: date
+      publicReleaseDate:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      license:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      miappeVersion:
+        range: double
+      associatedPublication:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+  Study:
+    description: One experiment at one site over one date range. Every other table reaches this.
+    annotations:
+      parquet_file: Study.parquet
+      rows_in_current_data: 1
+    attributes:
+      studyId:
+        range: string
+        identifier: true
+      investigationId:
+        range: Investigation
+        required: true
+      studyTitle:
+        range: string
+      studyDescription:
+        range: string
+      studyStartDate:
+        range: date
+      studyEndDate:
+        range: date
+      contactInst:
+        range: string
+      locationCountry:
+        range: string
+      siteName:
+        range: string
+      locationLatitude:
+        range: double
+      locationLongitude:
+        range: double
+      locationAltitude:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      expeDesignDesc:
+        range: string
+      expeDesignType:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      obsUnitLevelHierarchy:
+        range: string
+      obsUnitDesc:
+        range: string
+      growthFacilityDesc:
+        range: string
+      growthFacilityType:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      culturalPractice:
+        range: string
+      expeDesignMap:
+        range: string
+        comments:
+        - Entirely null across all 1 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+  Person:
+    description: 'A contact on the study. personId is a surrogate: md5(studyId, personName, personEmail).'
+    annotations:
+      parquet_file: Person.parquet
+      rows_in_current_data: 2
+    attributes:
+      studyId:
+        range: Study
+        required: true
+      personName:
+        range: string
+      personEmail:
+        range: string
+        comments:
+        - Null in 1 of 2 rows (50.0%).
+      personId:
+        range: string
+        identifier: true
+      personRole:
+        range: string
+      personAffiliation:
+        range: string
+  Environment:
+    description: A study-wide environment parameter, stored as a name/value pair.
+    annotations:
+      parquet_file: Environment.parquet
+      rows_in_current_data: 2
+    unique_keys:
+      environment_key:
+        unique_key_slots:
+        - studyId
+        - envParam
+    attributes:
+      studyId:
+        range: Study
+        required: true
+      envParam:
+        range: string
+        required: true
+      envParamValue:
+        range: string
+  DataFile:
+    description: A source file the study was loaded from.
+    annotations:
+      parquet_file: Data_files.parquet
+      rows_in_current_data: 2
+    unique_keys:
+      data_file_key:
+        unique_key_slots:
+        - studyId
+        - dataFileLink
+    attributes:
+      studyId:
+        range: Study
+        required: true
+      dataFileLink:
+        range: string
+        required: true
+      dataFileDesc:
+        range: string
+      dataFileVersion:
+        range: string
+        comments:
+        - Entirely null across all 2 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+  Event:
+    description: 'A dated event applied to the study, e.g. a phenotyping session. eventId is a surrogate:
+      md5(studyId, eventType, eventDate).'
+    annotations:
+      parquet_file: Event.parquet
+      rows_in_current_data: 44
+    attributes:
+      eventId:
+        range: string
+        identifier: true
+      studyId:
+        range: Study
+        required: true
+      obsUnitId:
+        range: integer
+        comments:
+        - Entirely null across all 44 rows; Parquet defaulted the type to int32. A MIAPPE slot this
+          study never filled.
+        - Named like a foreign key but never populated and not covered by a schema.yml relationship
+          test, so it is left as a plain scalar here.
+      eventType:
+        range: string
+      eventAccNumber:
+        range: string
+        comments:
+        - Entirely null across all 44 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      eventDesc:
+        range: string
+      eventDate:
+        range: date
+  BiologicalMaterial:
+    description: The genotype or accession an observation unit is grown from.
+    annotations:
+      parquet_file: Biological_material.parquet
+      rows_in_current_data: 510
+    attributes:
+      studyId:
+        range: Study
+        required: true
+      biologicalMaterialId:
+        range: string
+        identifier: true
+      biologicalMaterialExtId:
+        range: string
+      organism:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      infraspecificName:
+        range: string
+      biologicalMaterialLatitude:
+        range: double
+        description: Latitude of the wild collection site, not the growth site.
+        comments:
+        - Null in 65 of 510 rows (12.7%).
+      biologicalMaterialLongitude:
+        range: double
+        comments:
+        - Null in 65 of 510 rows (12.7%).
+      biologicalMaterialAltitude:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      biologicalMaterialCoordUncertainty:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      biologicalMaterialPreprocessing:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceId:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceDoi:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceAccNumber:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceAccName:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceInstCode:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceInstName:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceOtherIds:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceLatitude:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceLongitude:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceAltitude:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceCoordUncertainty:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      materialSourceDesc:
+        range: string
+        comments:
+        - Entirely null across all 510 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+  ObservationUnit:
+    description: The thing observed - here an individual plant. The grain every fact resolves to.
+    annotations:
+      parquet_file: Observation_Unit.parquet
+      rows_in_current_data: 519
+    attributes:
+      studyId:
+        range: Study
+        required: true
+        description: Denormalised for filtering - also derivable via biologicalMaterialId.
+      obsUnitId:
+        range: integer
+        identifier: true
+      biologicalMaterialId:
+        range: BiologicalMaterial
+        required: true
+      obsUnitType:
+        range: string
+      externalId:
+        range: integer
+      spatialDistribution:
+        range: string
+        comments:
+        - Entirely null across all 519 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      obsUnitFactorValue:
+        range: string
+        comments:
+        - Entirely null across all 519 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+  Sample:
+    description: Tissue taken from an observation unit on a date (leaf, stem, whole plant).
+    annotations:
+      parquet_file: Sample.parquet
+      rows_in_current_data: 1491
+    attributes:
+      obsUnitId:
+        range: ObservationUnit
+        required: true
+      sampleId:
+        range: string
+        identifier: true
+        description: 'Encodes its own lineage: SAMPLE-<obsUnitId>-<collectionDate>-<L|S|WP>.'
+      developmentStage:
+        range: string
+        comments:
+        - Entirely null across all 1491 rows; Parquet defaulted the type to string. A MIAPPE slot
+          this study never filled.
+      anatomicalEntity:
+        range: string
+      sampleDesc:
+        range: string
+      collectionDate:
+        range: string
+      externalId:
+        range: string
+        comments:
+        - Entirely null across all 1491 rows; Parquet defaulted the type to string. A MIAPPE slot
+          this study never filled.
+  ObservedVariable:
+    description: 'A measured variable: trait + method + scale. Joined by every observation.'
+    annotations:
+      parquet_file: Observed_variable.parquet
+      rows_in_current_data: 109
+    attributes:
+      studyId:
+        range: Study
+        required: true
+      variableId:
+        range: string
+        identifier: true
+      variableName:
+        range: string
+      variableAccNumber:
+        range: string
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      traitName:
+        range: string
+        comments:
+        - Null in 98 of 109 rows (89.9%).
+      traitEntity:
+        range: string
+      traitEntityAccessionNumber:
+        range: string
+      traitCharacteristic:
+        range: string
+        comments:
+        - Null in 98 of 109 rows (89.9%).
+      traitCharacteristicAccessionNumber:
+        range: string
+        comments:
+        - Null in 107 of 109 rows (98.2%).
+      traitAccNumber:
+        range: string
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      methodName:
+        range: string
+      methodAccNumber:
+        range: string
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      methodDesc:
+        range: string
+      methodRef:
+        range: string
+        comments:
+        - Entirely null across all 109 rows; Parquet defaulted the type to string. A MIAPPE slot this
+          study never filled.
+      scaleName:
+        range: string
+        description: 'The unit, as free text: mm, g, cm2, umol m-2 s-1.'
+      scaleAccNumber:
+        range: string
+        comments:
+        - Null in 107 of 109 rows (98.2%).
+      timeScale:
+        range: string
+        comments:
+        - Null in 107 of 109 rows (98.2%).
+  Observation:
+    description: 'A single measured value. observationId is a surrogate: md5(obsUnitId, variableId,
+      observationTimestamp).'
+    annotations:
+      parquet_file: Observation.parquet
+      rows_in_current_data: 420858
+    attributes:
+      observationId:
+        range: string
+        identifier: true
+      studyId:
+        range: Study
+        required: true
+        description: Denormalised for filtering - also derivable via obsUnitId.
+      obsUnitId:
+        range: ObservationUnit
+        required: true
+      sampleId:
+        range: Sample
+        description: Set only for point-measurement traits that need the tissue; null when the trait
+          is measured on the whole plant.
+        comments:
+        - Null in 416409 of 420858 rows (98.9%).
+      observationTimestamp:
+        range: datetime
+        description: A true timestamp, unlike the string form used by Image.observationTimestamp.
+        comments:
+        - Timezone-naive in Parquet (timestamp[ns], tz=None). xsd:dateTime and JSON Schema date-time
+          both want an RFC3339 offset, so an exporter has to assign one explicitly - the zone is genuinely
+          absent from the data, do not silently assume UTC.
+      variableId:
+        range: ObservedVariable
+        required: true
+      observationValue:
+        range: double
+        description: The measured value. Its unit is Observed_variable.scaleName, not stored here.
+      replicate:
+        range: string
+        comments:
+        - Entirely null across all 420858 rows; Parquet defaulted the type to string. A MIAPPE slot
+          this study never filled.
+      qualityFlag:
+        range: string
+        comments:
+        - Entirely null across all 420858 rows; Parquet defaulted the type to string. A MIAPPE slot
+          this study never filled.
+      notes:
+        range: string
+  Image:
+    description: 'One image-pipeline artifact: a raw frame, mask, header or analysis output. imageId
+      is a surrogate: md5 of all business columns.'
+    annotations:
+      parquet_file: Images.parquet
+      rows_in_current_data: 552674
+    attributes:
+      imageId:
+        range: string
+        identifier: true
+      studyId:
+        range: Study
+        required: true
+        description: Denormalised for filtering - also derivable via obsUnitId.
+      obsUnitId:
+        range: ObservationUnit
+        required: true
+      sampleId:
+        range: string
+        comments:
+        - Entirely null across all 552674 rows; Parquet defaulted the type to string. A MIAPPE slot
+          this study never filled.
+        - Named like a foreign key but never populated and not covered by a schema.yml relationship
+          test, so it is left as a plain scalar here.
+      observationTimestamp:
+        range: string
+        description: Stored as a US-format string, e.g. '4/15/24 6:55'. Not the timestamp type Observation
+          uses - normalise before joining the two on time.
+      Modality:
+        range: string
+        description: 'Sensor that produced the artifact: FC1, FC2, VNIR, SWIR, MSC1, IR1, RGB1, RGB2,
+          S3D. Capitalised to match the Parquet column.'
+      fileType:
+        range: string
+        description: Artifact kind within a modality, e.g. Image, Mask, Analysis, Protocol, Image
+          Data Header.
+      filePath:
+        range: string
+      notes:
+        range: string

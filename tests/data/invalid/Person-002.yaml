@@ -1,6 +1,7 @@
-# Example data object
+# Counter-example: studyId is required on Person, and it is missing here.
 ---
-id: "002"
-name: fuu bor
-primary_email: invalid-email-address
-age_in_years: 22
+personId: c9f0f895fb98ab9159f51fd0297e236d
+personName: John Roe
+personEmail: john.roe@ornl.gov
+personRole: Data Curator
+personAffiliation: Oak Ridge National Laboratory
